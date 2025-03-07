@@ -1,6 +1,6 @@
 from . import api_namespace_user
 from flask_restx import Resource, reqparse
-from app.config import Config
+from app.models import Invite
 
 
 @api_namespace_user.route("user/check_invite")
@@ -14,13 +14,9 @@ class UserCheckInvite(Resource):
     @api_namespace_user.response(500, "An error occured.")
     def get(self):
         """Check if an invite is valid."""
-        db = Config()._database
-
         args = self.get_parser.parse_args()
-        url = args.get("url").strip()
-        check = db.execute("SELECT * FROM invites WHERE url = ?", (url,))
-        if bool(check):
+        inviteid = args.get("url").strip()
+        
+        if Invite().validate(inviteid):
             return {}, 202
-        if type(check) is list:
-            return {}, 403
-        return {}, 500
+        return {}, 403
