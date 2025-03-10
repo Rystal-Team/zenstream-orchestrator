@@ -8,8 +8,8 @@ import { useRouter } from "next/navigation";
 import cookieManager from "../cookie_manager";
 
 type TabParams = {
-	icon: React.ReactElement;
-	path: string;
+  icon: React.ReactElement;
+  path: string;
 };
 
 /**
@@ -27,18 +27,18 @@ type TabParams = {
  * @returns A React element containing the logo image.
  */
 function Logo({ icon }: { icon: string }) {
-	return (
-		<div className="items-center bg-opacity-0 p-3 order-first m-1">
-			<Image
-				src={icon}
-				alt="icon"
-				height={48}
-				width={48}
-				unoptimized
-				priority
-			/>
-		</div>
-	);
+  return (
+    <div className="items-center bg-opacity-0 p-3 order-first m-1">
+      <Image
+        src={icon}
+        alt="icon"
+        height={48}
+        width={48}
+        unoptimized
+        priority
+      />
+    </div>
+  );
 }
 
 /**
@@ -46,7 +46,7 @@ function Logo({ icon }: { icon: string }) {
  * @returns A React element containing the separator.
  */
 function Seperator() {
-	return <div className="w-20 h-6 bg-opacity-0" />;
+  return <div className="w-20 h-6 bg-opacity-0" />;
 }
 
 /**
@@ -56,17 +56,17 @@ function Seperator() {
  * @returns A React element containing the tab.
  */
 function Tab({ icon, path }: TabParams) {
-	return (
-		<div className="flex items-center justify-center relative size-12 hover:size-14 ease-out transition-all duration-150 group">
-			<div className="absolute size-9 blur-none rounded-full group-hover:blur-md group-hover:bg-schemes-dark-on-surface-variant ease-out transition-all duration-150" />
-			<a
-				href={path}
-				className="relative bg-schemes-dark-surface-container-lowest rounded-full size-12 flex items-center justify-center ease-out group-hover:size-14 group-hover:bg-schemes-dark-surface-variant transition-all duration-150"
-			>
-				{icon}
-			</a>
-		</div>
-	);
+  return (
+    <div className="flex items-center justify-center relative size-12 hover:size-14 ease-out transition-all duration-150 group">
+      <div className="absolute size-9 blur-none rounded-full group-hover:blur-md group-hover:bg-schemes-dark-on-surface-variant ease-out transition-all duration-150" />
+      <a
+        href={path}
+        className="relative bg-schemes-dark-surface-container-lowest rounded-full size-12 flex items-center justify-center ease-out group-hover:size-14 group-hover:bg-schemes-dark-surface-variant transition-all duration-150"
+      >
+        {icon}
+      </a>
+    </div>
+  );
 }
 
 /**
@@ -74,7 +74,7 @@ function Tab({ icon, path }: TabParams) {
  * @returns A React element containing the navigation bar.
  */
 export default function Navbar() {
-	const router = useRouter();
+  const router = useRouter();
 
   /**
    * Handles the click event for the logout button.
